@@ -4,13 +4,11 @@ $ npm install -g jsafer
 ```
 ```shell
 $ # Let's test the installation.
-$ npm test jsafer
+$ jsafer
 
-> jsafer@1.3.0 test
-> node obfuscate.js "simple_test.js" && node simple_test.obfuscated.js "jsafer"
+No files were specified, getting code from prompt.
 
-- jsafer - Files to minify:  [ 'simple_test.js' ]
-
+prompt: code:
 
 function fibo(limit, a=1, b=1){
     // Some docstring about this function
