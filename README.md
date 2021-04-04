@@ -1,9 +1,53 @@
 # jsafer
 ```shell
-npm install -g jsafer
+$ # Let's obfuscate a fubonacii code. 
+$ npm install -g jsafer
+$ npm test jsafer
+
+> jsafer@1.3.0 test
+> node obfuscate.js "simple_test.js" && node simple_test.obfuscated.js "jsafer"
+
+- jsafer - Files to minify:  [ 'simple_test.js' ]
+
+
+function fibo(limit, a=1, b=1){
+    // Some docstring about this function
+    if(a > limit){
+        return
+    }
+    console.log(a)
+    return fibo(limit, b, a+b)
+}
+
+fibo(1000);
+
+- jsafer -  Stage 1 - Obfuscation #1 is done
+- jsafer - Stage 2 - Obfuscation #2 is done
+- jsafer - Stage 3 - Minifying...
+- jsafer - Stage 4 - Obfuscated And Minified:
+
+var _0x49e6=["1zlSZGb","518807ylKatK","Qlakm","1155382sXYSWG","log","3085474vbXBWc","11seDYzl","46887RdaVcU","514116BeWIKX","987748FPAGmd","1177490DqkqIl","kFteY","VBurQ","2BAVaWb"],_0x7c2b=function(r,n){return _0x49e6[r-=190]},_0x2f68a6=_0x7c2b;!function(r,n){for(var t=_0x7c2b;;)try{if(715168===-parseInt(t(192))*-parseInt(t(193))+parseInt(t(201))+-parseInt(t(198))*parseInt(t(199))+-parseInt(t(202))+-parseInt(t(195))+parseInt(t(200))*-parseInt(t(191))+parseInt(t(197)))break;r.push(r.shift())}catch(n){r.push(r.shift())}}(_0x49e6);var _0x84f0=[_0x2f68a6(196)];function fibo(r,n=1,t=1){var e=_0x2f68a6,a={kFteY:function(r,n){return r>n},Qlakm:function(r,n,t,e){return r(n,t,e)},VBurQ:function(r,n){return r+n}};if(!a[e(203)](n,r))return console[_0x84f0[0]](n),a[e(194)](fibo,r,t,a[e(190)](n,t))}fibo(1e3);
+
+- jsafer - Stage 5 - Done.
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+144
+233
+377
+610
 ```
 ## Security Obfuscation Examples
-the cli tool enables various usages.<br>
+The CLI tool enables various usages.<br>
+Code of any size can be encapsulated with this technique, in a stable way. <br>
 The output is production-ready artifacts, that are created as "*<original_name>*.obfuscated.js"
 
 #### Single File Obfuscation / Protection
