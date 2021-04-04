@@ -1,0 +1,25 @@
+{
+  "name": "jsafer",
+  "version": "1.0.0",
+  "description": "A simple Javascript Obfuscator that chains files/snippets using multiple obfuscation techniques.",
+  "main": "obfuscate.js",
+  "scripts": {
+    "test": "node obfuscate.js \"simple_test.js\" && node simple_test.obfuscated.js",
+    "start": "node obfuscate.js $@",
+    "run": "node obfuscate.js $@"
+  },
+  "keywords": [
+    "obfuscator",
+    "obfuscation",
+    "security",
+    "reverse-engineering"
+  ],
+  "author": "Avi Lumelsky",
+  "license": "MIT",
+  "dependencies": {
+    "javascript-obfuscator": "^2.11.0",
+    "js-obfuscator": "^0.1.4",
+    "jsafer": "^1.0.0",
+    "minify": "^7.0.1"
+  }
+}
