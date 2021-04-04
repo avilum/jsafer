@@ -1,7 +1,9 @@
 # jsafer
 ```shell
-$ # Let's obfuscate a fubonacii code. 
 $ npm install -g jsafer
+```
+```shell
+$ # Let's test the installation.
 $ npm test jsafer
 
 > jsafer@1.3.0 test
