@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const jsObfuscator = require('js-obfuscator');
 const JavaScriptObfuscator = require('javascript-obfuscator');
 const minify = require('minify');
