@@ -68,34 +68,39 @@ Obsufcates and minified JS code using different libraries (chaining the outputs)
 The code is finally minified to keep network performance the same.
 Good Luck!
 */
-const obfuscate = (script, obfuscated_name) => {
-    jsObfuscator(script, obfuscateStep1Options).then(function (obfuscated) {
-        console.log("- jsafer -  Stage 1 - Obfuscation #1 is done");
-        var obfuscationResult = JavaScriptObfuscator.obfuscate(
-            obfuscated,
-            obfuscateStep2Options
-        );
+const obfuscate = (script, obfuscated_name, steps) => {
+    jsObfuscator(script, obfuscateStep1Options).then(
+        function (obfuscated) {
+            var obfuscationResult = "";
+            for (let i = 0; i < steps; i++) {
+                console.log("- jsafer -  Stage " + i + " - First obfuscation is done");
+                obfuscationResult = JavaScriptObfuscator.obfuscate(
+                    obfuscated,
+                    obfuscateStep2Options
+                );
 
-        const step2Result = obfuscationResult.getObfuscatedCode();
-        console.log("- jsafer - Stage 2 - Obfuscation #2 is done");
-        console.log("- jsafer - Stage 3 - Minifying...")
-        
-        // Saving to file
-        const newFileName = path.basename(obfuscated_name).replace(".js", ".obfuscated.js");
-        fs.writeFileSync(newFileName, step2Result);
-        minify(newFileName, minifyOptions)
-            .then((minifiedCode) => {
-                console.log("- jsafer - Stage 4 - Obfuscated And Minified:")
-                console.log()
-                console.log(minifiedCode)
-                console.log()
-                console.log("- jsafer - Stage 5 - Done.")
-                return minifiedCode;
-            })
-            .catch(console.error);
-    }, function (err) {
-        console.error(err);
-    });
+                obfuscationResult = obfuscationResult.getObfuscatedCode();
+                console.log("- jsafer - Stage " + i + " - Second obfuscation is done");
+                // console.log(obfuscationResult)
+            };
+            console.log("- jsafer - Stage 3 - Minifying...")
+
+            // Saving to file
+            const newFileName = path.basename(obfuscated_name).replace(".js", ".obfuscated.js");
+            fs.writeFileSync(newFileName, obfuscationResult);
+            minify(newFileName, minifyOptions)
+                .then((minifiedCode) => {
+                    console.log("- jsafer - Stage 4 - Obfuscated And Minified:")
+                    console.log()
+                    console.log(minifiedCode)
+                    console.log()
+                    console.log("- jsafer - Stage 5 - Done.")
+                    return minifiedCode;
+                })
+                .catch(console.error);
+        }, function (err) {
+            console.error(err);
+        });
 
 };
 
@@ -110,7 +115,7 @@ if (runtimeArgs.length == 0) {
         }
 
         console.log('- jsafer - Command-line input received:');
-        obfuscate(result.code, 'script.js');
+        obfuscate(result.code, 'script.js', 10);
     })
 }
 else {
@@ -121,7 +126,7 @@ else {
                 console.error(err);
                 return
             }
-            const obfuscated = obfuscate(data, fileName);
+            const obfuscated = obfuscate(data, fileName, 10);
             return
         })
     });
