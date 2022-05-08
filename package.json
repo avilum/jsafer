@@ -18,9 +18,8 @@
   "author": "Avi Lumelsky",
   "license": "MIT",
   "dependencies": {
-    "javascript-obfuscator": "^2.11.0",
+    "javascript-obfuscator": "^4.0.0",
     "js-obfuscator": "^0.1.4",
-    "jsafer": "^1.0.0",
     "minify": "^7.0.1",
     "prompt": "^1.1.0"
   },

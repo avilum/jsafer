@@ -52,19 +52,83 @@ The output is production-ready artifacts, that are created as "*<original_name>*
 
 #### Single File Obfuscation / Protection
 ```shell
-% jsafer "simple_test.js"
-- jsafer - Files to minify:  [ 'simple_test.js' ]
-- jsafer -  Stage 1 - Obfuscation #1 is done
-- jsafer - Stage 2 - Obfuscation #2 is done
+➜  jsafer git:(main) ✗ jsafer ./simple_test.js
+- jsafer - Files to minify:  [ './simple_test.js' ]
+- jsafer -  Stage 0 - First obfuscation is done
+- jsafer - Stage 0 - Second obfuscation is done
+- jsafer -  Stage 1 - First obfuscation is done
+- jsafer - Stage 1 - Second obfuscation is done
+- jsafer -  Stage 2 - First obfuscation is done
+- jsafer - Stage 2 - Second obfuscation is done
+- jsafer -  Stage 3 - First obfuscation is done
+- jsafer - Stage 3 - Second obfuscation is done
+- jsafer -  Stage 4 - First obfuscation is done
+- jsafer - Stage 4 - Second obfuscation is done
+- jsafer -  Stage 5 - First obfuscation is done
+- jsafer - Stage 5 - Second obfuscation is done
+- jsafer -  Stage 6 - First obfuscation is done
+- jsafer - Stage 6 - Second obfuscation is done
+- jsafer -  Stage 7 - First obfuscation is done
+- jsafer - Stage 7 - Second obfuscation is done
+- jsafer -  Stage 8 - First obfuscation is done
+- jsafer - Stage 8 - Second obfuscation is done
+- jsafer -  Stage 9 - First obfuscation is done
+- jsafer - Stage 9 - Second obfuscation is done
 - jsafer - Stage 3 - Minifying...
 - jsafer - Stage 4 - Obfuscated And Minified:
 
-var _0x50d8=["631792iiXlAT","73vmOeJA","1491FsqhOo",
-"1akSToO","227pSAJBp","772838JDMXmH","ZgHGw","RGuPM",
-....
-(285)](r,n))return console[_0x2a32[0]](r),e[a(286)](fibo,n,t,e[a(278)](r,t))}fibo(1e3);
+var _0x342e93=_0x1143;function _0x1143(e,r){var n=_0x35d0();return(_0x1143=function(e,r){return n[e-=302]})(e,r)}!function(e,r){for(var n=_0x1143,t=_0x35d0();;)try{if(520382===-parseInt(n(315))/1*(-parseInt(n(307))/2)+-parseInt(n(319))/3+parseInt(n(303))/4*(parseInt(n(305))/5)+parseInt(n(308))/6+parseInt(n(311))/7+-parseInt(n(309))/8+-parseInt(n(318))/9)break;t.push(t.shift())}catch(e){t.push(t.shift())}}();var _0x9875=[_0x342e93(316),_0x342e93(302),_0x342e93(312),_0x342e93(310)+_0x342e93(314),_0x342e93(313)+_0x342e93(304)];const{performance:performance}=require(_0x9875[0]);var startTime=performance[_0x9875[1]]();function fibo(e,r=1,n=1){var t=_0x342e93,o={vxBTI:function(e,r){return e>r},aEBwR:function(e,r,n,t){return e(r,n,t)},LHoLC:function(e,r){return e+r}};if(!o[t(306)](r,e))return console[_0x9875[2]](r),o[t(320)](fibo,e,n,o[t(317)](r,n))}function _0x35d0(){var e=["ok ","341sPqGdk","perf_hooks","LHoLC","11695428cDfJvU","516504tfDkFZ","aEBwR","now","284FEQHXZ","nds","890aKXUeK","vxBTI","4978Piqczx","5899530SGIBSd","732472GoaJsq","The run to","1672713PsAbHz","log"," milliseco"];return(_0x35d0=function(){return e})()}fibo(1/1e-9);var endTime=performance[_0x9875[1]]();console[_0x9875[2]](""+_0x9875[3]+(endTime-startTime)+_0x9875[4]);
 
 - jsafer - Stage 5 - Done.
+```
+Check the obfuscated code:
+```shell
+➜  jsafer git:(main) ✗ node simple_test.obfuscated.js 
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+144
+233
+377
+610
+987
+1597
+2584
+4181
+6765
+10946
+17711
+28657
+46368
+75025
+121393
+196418
+317811
+514229
+832040
+1346269
+2178309
+3524578
+5702887
+9227465
+14930352
+24157817
+39088169
+63245986
+102334155
+165580141
+267914296
+433494437
+701408733
+The run took 7.0212240014225245 milliseconds
 ```
 #### Code Snippet Obfuscation
 ```shell
